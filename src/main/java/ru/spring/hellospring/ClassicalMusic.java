@@ -1,6 +1,20 @@
 package ru.spring.hellospring;
 
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
 public class ClassicalMusic implements Music{
+    private List<String> songs = new ArrayList<>();
+
+    {
+        songs.add("Requiem");
+        songs.add("Second Symphony");
+        songs.add("Santa Lucia");
+    }
+
     private ClassicalMusic() {
     }
 
@@ -16,7 +30,7 @@ public class ClassicalMusic implements Music{
         System.out.println("do my dist");
     }
     @Override
-    public String getSong() {
-        return "Hungarian rapsody";
+    public String getSong(int number) {
+        return songs.get(number);
     }
 }
